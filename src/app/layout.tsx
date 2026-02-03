@@ -20,10 +20,16 @@ export const metadata: Metadata = {
   description: "Premium apparel and bags manufacturer based in Bangladesh. We specialize in hoodies, sweatshirts, t-shirts, jackets, tote bags, and custom merchandise with no minimum order quantity.",
   keywords: "apparel manufacturer, Bangladesh garments, tote bags, canvas bags, custom clothing, wholesale apparel, hoodies, sweatshirts, t-shirts",
   authors: [{ name: "XV Apparels" }],
+  icons: {
+    icon: "/logo.jpeg",
+    shortcut: "/logo.jpeg",
+    apple: "/logo.jpeg",
+  },
   openGraph: {
     title: "XV Apparels | Crafted in Bangladesh, Carried Everywhere",
     description: "Premium apparel and bags manufacturer based in Bangladesh.",
     type: "website",
+    images: ["/logo.jpeg"],
   },
 };
 
