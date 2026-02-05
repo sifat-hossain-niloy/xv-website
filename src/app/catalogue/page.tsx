@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import SectionTitle from "@/components/SectionTitle";
-import { HiX, HiChevronLeft, HiChevronRight, HiZoomIn, HiZoomOut } from "react-icons/hi";
+import { HiX, HiChevronLeft, HiChevronRight, HiZoomIn } from "react-icons/hi";
 
 const galleryImages = [
   { src: "/bags/1.webp", alt: "Cotton Tote Bag", category: "Bags" },
@@ -30,38 +30,43 @@ const categories = ["All", "Bags", "Hoodies", "T-Shirts", "Sweatshirts", "Jacket
 export default function CataloguePage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
-  const [zoomLevel, setZoomLevel] = useState(1);
+  const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
+  const [showZoom, setShowZoom] = useState(false);
+  const imageRef = useRef<HTMLImageElement>(null);
 
   const filteredImages = selectedCategory === "All" 
     ? galleryImages 
     : galleryImages.filter((img) => img.category === selectedCategory);
 
-  const openLightbox = (index: number) => {
-    setSelectedImage(index);
-    setZoomLevel(1);
-  };
-  
+  const openLightbox = (index: number) => setSelectedImage(index);
   const closeLightbox = () => {
     setSelectedImage(null);
-    setZoomLevel(1);
+    setShowZoom(false);
   };
 
   const goNext = () => {
     if (selectedImage !== null) {
       setSelectedImage((selectedImage + 1) % filteredImages.length);
-      setZoomLevel(1);
+      setShowZoom(false);
     }
   };
 
   const goPrev = () => {
     if (selectedImage !== null) {
       setSelectedImage((selectedImage - 1 + filteredImages.length) % filteredImages.length);
-      setZoomLevel(1);
+      setShowZoom(false);
     }
   };
 
-  const zoomIn = () => setZoomLevel(prev => Math.min(prev + 0.5, 3));
-  const zoomOut = () => setZoomLevel(prev => Math.max(prev - 0.5, 0.5));
+  const handleMouseMove = (e: React.MouseEvent<HTMLImageElement>) => {
+    if (!imageRef.current) return;
+    
+    const rect = imageRef.current.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    
+    setZoomPosition({ x, y });
+  };
 
   return (
     <>
@@ -462,16 +467,80 @@ export default function CataloguePage() {
                 margin: "0 auto"
               }}
             >
-              <img
-                src={filteredImages[selectedImage].src}
-                alt={filteredImages[selectedImage].alt}
-                style={{ 
-                  maxWidth: "100%", 
-                  maxHeight: "75vh", 
-                  objectFit: "contain", 
-                  borderRadius: "1rem"
-                }}
-              />
+              {/* Image Container with Zoom */}
+              <div style={{ position: "relative", display: "flex", gap: "1.5rem", alignItems: "flex-start" }}>
+                {/* Main Image */}
+                <div style={{ position: "relative" }}>
+                  <img
+                    ref={imageRef}
+                    src={filteredImages[selectedImage].src}
+                    alt={filteredImages[selectedImage].alt}
+                    onMouseEnter={() => setShowZoom(true)}
+                    onMouseLeave={() => setShowZoom(false)}
+                    onMouseMove={handleMouseMove}
+                    style={{ 
+                      maxWidth: "60vw", 
+                      maxHeight: "70vh", 
+                      objectFit: "contain", 
+                      borderRadius: "1rem",
+                      cursor: "crosshair"
+                    }}
+                  />
+                  {/* Zoom indicator */}
+                  <div style={{
+                    position: "absolute",
+                    bottom: "0.75rem",
+                    right: "0.75rem",
+                    padding: "0.5rem 0.75rem",
+                    borderRadius: "0.5rem",
+                    backgroundColor: "rgba(0,0,0,0.6)",
+                    backdropFilter: "blur(4px)",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.5rem",
+                    color: "rgba(255,255,255,0.7)",
+                    fontSize: "0.75rem",
+                    pointerEvents: "none"
+                  }}>
+                    <HiZoomIn size={14} />
+                    <span>Hover to zoom</span>
+                  </div>
+                </div>
+
+                {/* Zoom Preview Box */}
+                <AnimatePresence>
+                  {showZoom && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.9 }}
+                      transition={{ duration: 0.2 }}
+                      style={{
+                        width: "300px",
+                        height: "300px",
+                        borderRadius: "1rem",
+                        overflow: "hidden",
+                        border: "2px solid rgba(255,255,255,0.2)",
+                        boxShadow: "0 20px 50px rgba(0,0,0,0.5)",
+                        flexShrink: 0
+                      }}
+                    >
+                      <div
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          backgroundImage: `url(${filteredImages[selectedImage].src})`,
+                          backgroundPosition: `${zoomPosition.x}% ${zoomPosition.y}%`,
+                          backgroundSize: "300%",
+                          backgroundRepeat: "no-repeat"
+                        }}
+                      />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Caption */}
               <div style={{
                 marginTop: "1rem",
                 padding: "0.75rem 1.5rem",
