@@ -3,6 +3,15 @@ import nodemailer from "nodemailer";
 
 export async function POST(request: NextRequest) {
   try {
+    // Check if environment variables are set
+    if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+      console.error("SMTP credentials not configured");
+      return NextResponse.json(
+        { error: "Email service not configured" },
+        { status: 500 }
+      );
+    }
+
     const { name, email, whatsapp, subject, message } = await request.json();
 
     // Validate required fields
@@ -72,8 +81,9 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ success: true, message: "Email sent successfully" });
   } catch (error) {
     console.error("Error sending email:", error);
+    const errorMessage = error instanceof Error ? error.message : "Unknown error";
     return NextResponse.json(
-      { error: "Failed to send email" },
+      { error: "Failed to send email", details: errorMessage },
       { status: 500 }
     );
   }
