@@ -189,11 +189,20 @@ export default function Footer() {
               </li>
               <li style={{ marginBottom: "1rem" }}>
                 <a
-                  href="mailto:zarefahmedsyed@gmail.com"
+                  href="mailto:zaref@xvapparels.com"
                   style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none", display: "flex", alignItems: "center", gap: "0.75rem" }}
                 >
                   <HiMail style={{ color: "#4a7a4a", flexShrink: 0 }} size={18} />
-                  <span>zarefahmedsyed@gmail.com</span>
+                  <span>zaref@xvapparels.com</span>
+                </a>
+              </li>
+              <li style={{ marginBottom: "1rem" }}>
+                <a
+                  href="mailto:wadee@xvapparels.com"
+                  style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none", display: "flex", alignItems: "center", gap: "0.75rem" }}
+                >
+                  <HiMail style={{ color: "#4a7a4a", flexShrink: 0 }} size={18} />
+                  <span>wadee@xvapparels.com</span>
                 </a>
               </li>
               <li style={{ marginBottom: "1rem" }}>

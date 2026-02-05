@@ -65,8 +65,8 @@ const processSteps = [
   { step: "04", title: "Paper Pattern Designing", description: "Fashion Editor creates your paper pattern in 3 days." },
   { step: "05", title: "Payment", description: "We accept Online banking, PayPal, TT, Western Union, and bank transfer." },
   { step: "06", title: "Sample/Bulk Production", description: "7 days for samples, 2-3 weeks for bulk. Professional production line ensures quality." },
-  { step: "07", title: "Shipping", description: "Multiple shipping options available. Most cost-effective method recommended." },
-  { step: "08", title: "Quality Control", description: "Every garment undergoes thorough inspection and professional pressing before shipping." },
+  { step: "07", title: "Quality Control", description: "Every garment undergoes thorough inspection and professional pressing before shipping." },
+  { step: "08", title: "Shipping", description: "Multiple shipping options available. Most cost-effective method recommended." },
 ];
 
 export default function ApparelPage() {
