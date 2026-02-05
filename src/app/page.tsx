@@ -52,28 +52,22 @@ const features = [
 
 const products = [
   {
-    title: "Hoodies & Sweatshirts",
-    description: "Premium quality hoodies with custom embroidery and printing options.",
-    image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&auto=format&fit=crop&q=60",
-    features: ["280-400 GSM", "Custom embroidery", "Fleece options"],
+    title: "Apparel",
+    description: "Premium hoodies, t-shirts, jackets, and more with custom embroidery, screen printing, etc.",
+    image: "/home/apparel.jpeg",
+    features: ["Hoodies & T-Shirts", "Custom printing", "All sizes"],
   },
   {
-    title: "T-Shirts",
-    description: "High-quality cotton and blend t-shirts for brands and merchandise.",
-    image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&auto=format&fit=crop&q=60",
-    features: ["100% Cotton", "Screen printing", "Ring-spun"],
-  },
-  {
-    title: "Jackets & Outerwear",
-    description: "Durable jackets with advanced stitching and custom finishes.",
-    image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&auto=format&fit=crop&q=60",
-    features: ["Weather resistant", "Custom linings", "Premium zips"],
-  },
-  {
-    title: "Tote & Canvas Bags",
-    description: "Eco-friendly bags in jute, cotton, and canvas for brands and retail.",
-    image: "/bags/4.webp",
+    title: "Custom Bags",
+    description: "Eco-friendly bags in jute, cotton, and canvas. Perfect for brands, retail, and promotional use.",
+    image: "/home/Custom bags.jpeg",
     features: ["Eco-friendly", "Custom branding", "Multiple sizes"],
+  },
+  {
+    title: "Caps & Accessories",
+    description: "Custom caps, hats, and accessories with embroidery, patches, and screen printing options.",
+    image: "/home/caps.jpeg",
+    features: ["Embroidery & patches", "Snapback & fitted", "Custom designs"],
   },
 ];
 
