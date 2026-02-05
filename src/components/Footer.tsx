@@ -5,9 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import {
-  FaFacebookF,
   FaInstagram,
-  FaLinkedinIn,
   FaWhatsapp,
 } from "react-icons/fa";
 import { HiMail, HiPhone } from "react-icons/hi";
@@ -105,9 +103,7 @@ export default function Footer() {
             </p>
             <div style={{ display: "flex", gap: "0.75rem" }}>
               {[
-                { icon: FaFacebookF, href: "#" },
-                { icon: FaInstagram, href: "#" },
-                { icon: FaLinkedinIn, href: "#" },
+                { icon: FaInstagram, href: "https://www.instagram.com/xv_apparels?igsh=NTc4MTIwNjQ2YQ==" },
                 { icon: FaWhatsapp, href: "https://wa.me/19513138242" },
               ].map((social, index) => (
                 <a

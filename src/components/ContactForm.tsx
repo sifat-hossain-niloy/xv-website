@@ -21,7 +21,7 @@ export default function ContactForm() {
     setIsSubmitting(true);
 
     try {
-      const mailtoLink = `mailto:ilhaan@xvapparels.com?subject=${encodeURIComponent(
+      const mailtoLink = `mailto:15.ilhaan@gmail.com?subject=${encodeURIComponent(
         formData.subject || "New Inquiry from XV Apparels Website"
       )}&body=${encodeURIComponent(
         `Name: ${formData.name}\nEmail: ${formData.email}\nWhatsApp: ${formData.whatsapp}\n\nMessage:\n${formData.message}`
