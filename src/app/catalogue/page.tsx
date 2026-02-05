@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import SectionTitle from "@/components/SectionTitle";
-import { HiX, HiChevronLeft, HiChevronRight } from "react-icons/hi";
+import { HiX, HiChevronLeft, HiChevronRight, HiZoomIn, HiZoomOut } from "react-icons/hi";
 
 const galleryImages = [
   { src: "/bags/1.webp", alt: "Cotton Tote Bag", category: "Bags" },
@@ -30,25 +30,38 @@ const categories = ["All", "Bags", "Hoodies", "T-Shirts", "Sweatshirts", "Jacket
 export default function CataloguePage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [zoomLevel, setZoomLevel] = useState(1);
 
   const filteredImages = selectedCategory === "All" 
     ? galleryImages 
     : galleryImages.filter((img) => img.category === selectedCategory);
 
-  const openLightbox = (index: number) => setSelectedImage(index);
-  const closeLightbox = () => setSelectedImage(null);
+  const openLightbox = (index: number) => {
+    setSelectedImage(index);
+    setZoomLevel(1);
+  };
+  
+  const closeLightbox = () => {
+    setSelectedImage(null);
+    setZoomLevel(1);
+  };
 
   const goNext = () => {
     if (selectedImage !== null) {
       setSelectedImage((selectedImage + 1) % filteredImages.length);
+      setZoomLevel(1);
     }
   };
 
   const goPrev = () => {
     if (selectedImage !== null) {
       setSelectedImage((selectedImage - 1 + filteredImages.length) % filteredImages.length);
+      setZoomLevel(1);
     }
   };
+
+  const zoomIn = () => setZoomLevel(prev => Math.min(prev + 0.5, 3));
+  const zoomOut = () => setZoomLevel(prev => Math.max(prev - 0.5, 0.5));
 
   return (
     <>
@@ -438,20 +451,30 @@ export default function CataloguePage() {
               animate={{ scale: 1 }}
               exit={{ scale: 0.9 }}
               onClick={(e) => e.stopPropagation()}
-              style={{ position: "relative", maxWidth: "80rem", maxHeight: "85vh", width: "100%", margin: "0 1rem" }}
+              style={{ 
+                position: "relative", 
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                maxWidth: "90vw",
+                maxHeight: "80vh",
+                margin: "0 auto"
+              }}
             >
-              <Image
+              <img
                 src={filteredImages[selectedImage].src}
                 alt={filteredImages[selectedImage].alt}
-                width={1200}
-                height={800}
-                style={{ width: "100%", height: "100%", objectFit: "contain", borderRadius: "1rem" }}
+                style={{ 
+                  maxWidth: "100%", 
+                  maxHeight: "75vh", 
+                  objectFit: "contain", 
+                  borderRadius: "1rem"
+                }}
               />
               <div style={{
-                position: "absolute",
-                bottom: "1rem",
-                left: "1rem",
-                padding: "0.75rem 1rem",
+                marginTop: "1rem",
+                padding: "0.75rem 1.5rem",
                 borderRadius: "0.75rem",
                 backgroundColor: "rgba(0,0,0,0.5)",
                 backdropFilter: "blur(10px)",
