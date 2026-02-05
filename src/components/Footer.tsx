@@ -225,9 +225,22 @@ export default function Footer() {
           alignItems: "center", 
           gap: "1rem" 
         }}>
-          <p style={{ color: "rgba(255,255,255,0.3)", fontSize: "0.875rem" }}>
-            © {new Date().getFullYear()} XV Apparels. All Rights Reserved.
-          </p>
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+            <p style={{ color: "rgba(255,255,255,0.3)", fontSize: "0.875rem" }}>
+              © {new Date().getFullYear()} XV Apparels. All Rights Reserved.
+            </p>
+            <p style={{ color: "rgba(255,255,255,0.25)", fontSize: "0.75rem" }}>
+              Designed & Developed by{" "}
+              <a 
+                href="https://prismbd.net/tech/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                style={{ color: "#4a7a4a", textDecoration: "none" }}
+              >
+                Prism BD Tech
+              </a>
+            </p>
+          </div>
           <div style={{ display: "flex", gap: "2rem" }}>
             <Link
               href="/privacy"
