@@ -7,6 +7,7 @@ import SectionTitle from "@/components/SectionTitle";
 import { HiX, HiChevronLeft, HiChevronRight, HiZoomIn } from "react-icons/hi";
 
 const galleryImages = [
+  // Bags
   { src: "/bags/1.webp", alt: "Cotton Tote Bag", category: "Bags" },
   { src: "/bags/2.jpg", alt: "Canvas Tote", category: "Bags" },
   { src: "/bags/3.webp", alt: "Jute Bag", category: "Bags" },
@@ -17,15 +18,58 @@ const galleryImages = [
   { src: "/bags/8.jpeg", alt: "Eco Shopping Bag", category: "Bags" },
   { src: "/bags/9.jpeg", alt: "Premium Bag", category: "Bags" },
   { src: "/bags/10.jpeg", alt: "Custom Design", category: "Bags" },
-  { src: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800", alt: "Premium Hoodie", category: "Hoodies" },
-  { src: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800", alt: "Cotton T-Shirt", category: "T-Shirts" },
-  { src: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800", alt: "Denim Jacket", category: "Jackets" },
-  { src: "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?w=800", alt: "Crewneck Sweatshirt", category: "Sweatshirts" },
-  { src: "https://images.unsplash.com/photo-1626497764746-6dc36546b388?w=800", alt: "Polo Shirt", category: "Polo Shirts" },
-  { src: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=800", alt: "Joggers", category: "Pants" },
+  // Apparel
+  { src: "/catalogue/apparel-1.jpeg", alt: "Apparel Collection", category: "Apparel" },
+  // More Bags
+  { src: "/catalogue/bags-11.jpeg", alt: "Custom Bag 11", category: "Bags" },
+  { src: "/catalogue/bags-12.jpeg", alt: "Custom Bag 12", category: "Bags" },
+  { src: "/catalogue/bags-13.jpeg", alt: "Custom Bag 13", category: "Bags" },
+  { src: "/catalogue/bags-14.jpeg", alt: "Custom Bag 14", category: "Bags" },
+  { src: "/catalogue/bags-15.jpeg", alt: "Custom Bag 15", category: "Bags" },
+  { src: "/catalogue/bags-16.jpeg", alt: "Custom Bag 16", category: "Bags" },
+  { src: "/catalogue/bags-17.jpeg", alt: "Custom Bag 17", category: "Bags" },
+  { src: "/catalogue/bags-18.jpeg", alt: "Custom Bag 18", category: "Bags" },
+  { src: "/catalogue/bags-19.jpeg", alt: "Custom Bag 19", category: "Bags" },
+  { src: "/catalogue/bags-20.jpeg", alt: "Custom Bag 20", category: "Bags" },
+  // Our Office
+  { src: "/contact/1.jpeg", alt: "Our Office 1", category: "Our Office" },
+  { src: "/contact/2.jpeg", alt: "Our Office 2", category: "Our Office" },
+  { src: "/contact/3.jpeg", alt: "Our Office 3", category: "Our Office" },
+  { src: "/contact/4.jpeg", alt: "Our Office 4", category: "Our Office" },
+  { src: "/contact/5.jpeg", alt: "Our Office 5", category: "Our Office" },
+  { src: "/contact/6.jpeg", alt: "Our Office 6", category: "Our Office" },
+  { src: "/contact/7.jpeg", alt: "Our Office 7", category: "Our Office" },
+  { src: "/contact/8.jpeg", alt: "Our Office 8", category: "Our Office" },
+  // Our Works
+  { src: "/our-works/work-1.jpeg", alt: "Our Work 1", category: "Our Works" },
+  { src: "/our-works/work-2.jpeg", alt: "Our Work 2", category: "Our Works" },
+  { src: "/our-works/work-3.jpeg", alt: "Our Work 3", category: "Our Works" },
+  { src: "/our-works/work-4.jpeg", alt: "Our Work 4", category: "Our Works" },
+  { src: "/our-works/work-5.jpeg", alt: "Our Work 5", category: "Our Works" },
+  { src: "/our-works/work-6.jpeg", alt: "Our Work 6", category: "Our Works" },
+  { src: "/our-works/work-7.jpeg", alt: "Our Work 7", category: "Our Works" },
+  { src: "/our-works/work-8.jpeg", alt: "Our Work 8", category: "Our Works" },
+  { src: "/our-works/work-9.jpeg", alt: "Our Work 9", category: "Our Works" },
+  { src: "/our-works/work-10.jpeg", alt: "Our Work 10", category: "Our Works" },
+  { src: "/our-works/work-11.jpeg", alt: "Our Work 11", category: "Our Works" },
+  { src: "/our-works/work-12.jpeg", alt: "Our Work 12", category: "Our Works" },
+  { src: "/our-works/work-13.jpeg", alt: "Our Work 13", category: "Our Works" },
+  { src: "/our-works/work-14.jpeg", alt: "Our Work 14", category: "Our Works" },
+  { src: "/our-works/work-15.jpeg", alt: "Our Work 15", category: "Our Works" },
+  { src: "/our-works/work-16.jpeg", alt: "Our Work 16", category: "Our Works" },
+  { src: "/our-works/work-17.jpeg", alt: "Our Work 17", category: "Our Works" },
+  { src: "/our-works/work-18.jpeg", alt: "Our Work 18", category: "Our Works" },
+  { src: "/our-works/work-19.jpeg", alt: "Our Work 19", category: "Our Works" },
+  { src: "/our-works/work-20.jpeg", alt: "Our Work 20", category: "Our Works" },
+  { src: "/our-works/work-21.jpeg", alt: "Our Work 21", category: "Our Works" },
+  { src: "/our-works/work-22.jpeg", alt: "Our Work 22", category: "Our Works" },
+  { src: "/our-works/work-23.jpeg", alt: "Our Work 23", category: "Our Works" },
+  { src: "/our-works/work-24.jpeg", alt: "Our Work 24", category: "Our Works" },
+  { src: "/our-works/work-25.jpeg", alt: "Our Work 25", category: "Our Works" },
+  { src: "/our-works/work-26.jpeg", alt: "Our Work 26", category: "Our Works" },
 ];
 
-const categories = ["All", "Bags", "Hoodies", "T-Shirts", "Sweatshirts", "Jackets", "Polo Shirts", "Pants", "Our Office"];
+const categories = ["All", "Bags", "Apparel", "Our Works", "Our Office"];
 
 export default function CataloguePage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
