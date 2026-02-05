@@ -21,14 +21,18 @@ export default function ContactForm() {
     setIsSubmitting(true);
 
     try {
-      const mailtoLink = `mailto:15.ilhaan@gmail.com?subject=${encodeURIComponent(
-        formData.subject || "New Inquiry from XV Apparels Website"
-      )}&body=${encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\nWhatsApp: ${formData.whatsapp}\n\nMessage:\n${formData.message}`
-      )}`;
-      
-      window.location.href = mailtoLink;
-      
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+
       setSubmitStatus("success");
       setFormData({
         name: "",
@@ -259,7 +263,7 @@ export default function ContactForm() {
           <svg style={{ width: "1.25rem", height: "1.25rem", flexShrink: 0 }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
-          <span>Your email client should open with your message. If not, please email us directly.</span>
+          <span>Message sent successfully! We&apos;ll get back to you within 24-48 hours.</span>
         </motion.div>
       )}
 
