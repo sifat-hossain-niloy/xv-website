@@ -381,3 +381,49 @@ input::placeholder, textarea::placeholder {
   background: var(--primary);
   color: #000;
 }
+
+/* Client logo marquee */
+.marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: marquee-scroll 40s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-logo {
+  flex-shrink: 0;
+  margin: 0 2.5rem;
+  opacity: 0.45;
+  transition: opacity 0.3s ease;
+}
+
+.marquee-logo:hover {
+  opacity: 0.9;
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (max-width: 640px) {
+  .marquee-logo {
+    margin: 0 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation-duration: 120s;
+  }
+}

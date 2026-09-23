@@ -291,85 +291,13 @@ export default function BagsPage() {
             viewport={{ once: true }}
             style={{ textAlign: "center", marginTop: "4rem" }}
           >
-            <Link href="/catalogue">
+            <Link href="/partners">
               <motion.button
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
                 className="btn-secondary"
               >
                 View Full Catalogue
-              </motion.button>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Sustainability Message */}
-      <section style={{ padding: "8rem 0", position: "relative" }}>
-        <div className="gradient-mesh" style={{ position: "absolute", inset: 0 }} />
-
-        <div style={{ position: "relative", zIndex: 10, width: "100%", padding: "0 2rem" }}>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            style={{ maxWidth: "48rem", margin: "0 auto", textAlign: "center" }}
-          >
-            <span style={{ fontSize: "4.5rem", marginBottom: "2.5rem", display: "block" }}>🌱</span>
-            <h2 style={{ fontSize: "clamp(1.875rem, 5vw, 3rem)", fontWeight: 700, color: "#fff", marginBottom: "2rem" }}>
-              Let&apos;s Carry <span className="text-gradient">Sustainability</span> Together
-            </h2>
-            <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "1.125rem", marginBottom: "3rem", lineHeight: 1.75, textAlign: "center" }}>
-              Perfect for businesses, startups, student organizations, events, and retail.
-            </p>
-            <Link href="/contact">
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-                className="btn-primary"
-              >
-                Get Your Quote
-              </motion.button>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section style={{ padding: "8rem 0", position: "relative" }}>
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #243d24, #325232, #4a7a4a)" }} />
-
-        <div style={{ position: "relative", zIndex: 10, width: "100%", padding: "0 2rem" }}>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            style={{ maxWidth: "48rem", margin: "0 auto", textAlign: "center" }}
-          >
-            <h2 style={{ fontSize: "clamp(1.875rem, 5vw, 3rem)", fontWeight: 700, color: "#fff", marginBottom: "2rem" }}>
-              Ready to Create Your Custom Bags?
-            </h2>
-            <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "1.125rem", marginBottom: "3rem", lineHeight: 1.75, textAlign: "center" }}>
-              Whether you need 50 bags or 50,000, we&apos;re here to help.
-            </p>
-            <Link href="/contact">
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-                style={{
-                  backgroundColor: "#fff",
-                  color: "#325232",
-                  padding: "1.25rem 3rem",
-                  borderRadius: "0.75rem",
-                  fontWeight: 600,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.1em",
-                  border: "none",
-                  cursor: "pointer",
-                  boxShadow: "0 25px 50px rgba(0,0,0,0.3)"
-                }}
-              >
-                Get Your Quote
               </motion.button>
             </Link>
           </motion.div>
