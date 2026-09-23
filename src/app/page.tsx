@@ -7,6 +7,7 @@ import Hero from "@/components/Hero";
 import SectionTitle from "@/components/SectionTitle";
 import FeatureCard from "@/components/FeatureCard";
 import StatsSection from "@/components/StatsSection";
+import ClientMarquee from "@/components/ClientMarquee";
 import ProductCard from "@/components/ProductCard";
 import {
   HiOutlineGlobe,
@@ -71,15 +72,6 @@ const products = [
   },
 ];
 
-const clients = [
-  "Small Brands",
-  "Amazon Sellers",
-  "Fashion Retailers",
-  "Cafes & Restaurants",
-  "Corporate Buyers",
-  "University Organizations",
-];
-
 export default function Home() {
   return (
     <>
@@ -92,6 +84,9 @@ export default function Home() {
         backgroundImage="/contact/1.jpeg"
         ctaText="Start Your Order"
       />
+
+      {/* Client Logos */}
+      <ClientMarquee />
 
       {/* Features Section */}
       <section style={{ padding: "8rem 0" }}>
@@ -170,122 +165,6 @@ export default function Home() {
               </motion.button>
             </Link>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Who We Serve Section */}
-      <section style={{ padding: "8rem 0" }}>
-        <div className="gradient-mesh" style={{ position: "absolute", inset: 0 }} />
-
-        <div style={{ position: "relative", zIndex: 10, width: "100%", padding: "0 2rem" }}>
-          <div style={{ 
-            display: "grid", 
-            gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))", 
-            gap: "4rem",
-            alignItems: "center"
-          }}>
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <span style={{
-                display: "inline-block",
-                padding: "0.375rem 1rem",
-                borderRadius: "9999px",
-                backgroundColor: "rgba(50, 82, 50, 0.15)",
-                border: "1px solid rgba(50, 82, 50, 0.3)",
-                color: "#4a7a4a",
-                fontSize: "0.75rem",
-                fontWeight: 500,
-                letterSpacing: "0.2em",
-                textTransform: "uppercase",
-                marginBottom: "2rem"
-              }}>
-                Who We Serve
-              </span>
-              <h2 style={{ fontSize: "clamp(1.875rem, 5vw, 3rem)", fontWeight: 700, color: "#fff", marginBottom: "2rem" }}>
-                Bulk & Custom Orders <span className="text-gradient">Welcome</span>
-              </h2>
-              <p style={{ color: "rgba(255,255,255,0.5)", marginBottom: "2.5rem", lineHeight: 1.75, fontSize: "1.125rem" }}>
-                We cater to university organizations, corporate buyers, retailers,
-                and distributors — big or small, every order gets full attention.
-                Whether you&apos;re a startup brand or an established retailer, our
-                flexible manufacturing adapts to your needs.
-              </p>
-
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem", marginBottom: "3rem" }}>
-                {clients.map((client, index) => (
-                  <motion.span
-                    key={index}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.05 }}
-                    style={{
-                      padding: "0.625rem 1rem",
-                      borderRadius: "9999px",
-                      border: "1px solid rgba(255,255,255,0.1)",
-                      backgroundColor: "rgba(255,255,255,0.05)",
-                      fontSize: "0.875rem",
-                      color: "rgba(255,255,255,0.6)"
-                    }}
-                  >
-                    {client}
-                  </motion.span>
-                ))}
-              </div>
-
-              <Link href="/contact">
-                <motion.button
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="btn-primary"
-                >
-                  Request a Quote
-                </motion.button>
-              </Link>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div style={{ position: "relative", borderRadius: "1.5rem", overflow: "hidden", border: "1px solid rgba(255,255,255,0.1)" }}>
-                <Image
-                  src="/bags/2.jpg"
-                  alt="Manufacturing"
-                  width={600}
-                  height={500}
-                  style={{ width: "100%", height: "500px", objectFit: "cover" }}
-                />
-                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.2), transparent)" }} />
-
-                <motion.div
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3, type: "spring" }}
-                  style={{
-                    position: "absolute",
-                    bottom: "2rem",
-                    left: "2rem",
-                    padding: "1.5rem 2rem",
-                    borderRadius: "1rem",
-                    backgroundColor: "rgba(0,0,0,0.6)",
-                    backdropFilter: "blur(20px)",
-                    border: "1px solid rgba(255,255,255,0.1)"
-                  }}
-                >
-                  <p className="text-gradient" style={{ fontSize: "2.5rem", fontWeight: 700 }}>10+</p>
-                  <p style={{ color: "rgba(255,255,255,0.7)", fontSize: "0.875rem" }}>Years Experience</p>
-                </motion.div>
-              </div>
-            </motion.div>
-          </div>
         </div>
       </section>
 

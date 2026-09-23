@@ -159,7 +159,7 @@ export default function Hero({
                 {ctaText}
               </motion.button>
             </Link>
-            <Link href="/catalogue">
+            <Link href="/partners">
               <motion.button
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}

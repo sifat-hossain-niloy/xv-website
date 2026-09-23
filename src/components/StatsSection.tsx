@@ -8,6 +8,7 @@ const stats = [
   { value: 12, suffix: "+", label: "Countries Served" },
   { value: 500, suffix: "+", label: "Products Delivered" },
   { value: 0, suffix: "", label: "Minimum Order Qty" },
+  { value: 5, suffix: "+", label: "Years of Experience" },
 ];
 
 function AnimatedCounter({ value, suffix }: { value: number; suffix: string }) {

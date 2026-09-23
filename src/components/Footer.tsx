@@ -14,7 +14,7 @@ const quickLinks = [
   { name: "Home", href: "/" },
   { name: "Apparel", href: "/apparel" },
   { name: "Bags", href: "/bags" },
-  { name: "Catalogue", href: "/catalogue" },
+  { name: "Partners", href: "/partners" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -207,12 +207,21 @@ export default function Footer() {
               </li>
               <li style={{ marginBottom: "1rem" }}>
                 <a
+                  href="tel:+19513138242"
+                  style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none", display: "flex", alignItems: "center", gap: "0.75rem" }}
+                >
+                  <HiPhone style={{ color: "#4a7a4a", flexShrink: 0 }} size={18} />
+                  <span>+1 (951) 313-8242</span>
+                </a>
+              </li>
+              <li style={{ marginBottom: "1rem" }}>
+                <a
                   href="https://wa.me/19513138242"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ color: "rgba(255,255,255,0.4)", textDecoration: "none", display: "flex", alignItems: "center", gap: "0.75rem" }}
                 >
-                  <HiPhone style={{ color: "#4a7a4a", flexShrink: 0 }} size={18} />
+                  <FaWhatsapp style={{ color: "#4a7a4a", flexShrink: 0 }} size={18} />
                   <span>+1 (951) 313-8242</span>
                 </a>
               </li>

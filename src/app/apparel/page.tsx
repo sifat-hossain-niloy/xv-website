@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 import Image from "next/image";
 import Hero from "@/components/Hero";
 import SectionTitle from "@/components/SectionTitle";
@@ -191,48 +190,6 @@ export default function ApparelPage() {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section style={{ padding: "8rem 0", position: "relative" }}>
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #243d24, #325232, #4a7a4a)" }} />
-
-        <div style={{ position: "relative", zIndex: 10, width: "100%", padding: "0 2rem" }}>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            style={{ maxWidth: "48rem", margin: "0 auto", textAlign: "center" }}
-          >
-            <h2 style={{ fontSize: "clamp(1.875rem, 5vw, 3rem)", fontWeight: 700, color: "#fff", marginBottom: "2rem" }}>
-              Ready to Start Your Apparel Line?
-            </h2>
-            <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "1.125rem", marginBottom: "3rem", lineHeight: 1.75, textAlign: "center" }}>
-              Whether you have a complete tech pack or just an idea, we&apos;re here to
-              help you create premium quality clothing.
-            </p>
-            <Link href="/contact">
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-                style={{
-                  backgroundColor: "#fff",
-                  color: "#325232",
-                  padding: "1.25rem 3rem",
-                  borderRadius: "0.75rem",
-                  fontWeight: 600,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.1em",
-                  border: "none",
-                  cursor: "pointer",
-                  boxShadow: "0 25px 50px rgba(0,0,0,0.3)"
-                }}
-              >
-                Request a Quote
-              </motion.button>
-            </Link>
-          </motion.div>
         </div>
       </section>
     </>
